@@ -1,0 +1,35 @@
+
+<h1>
+  Classes
+</h1>
+<mat-table [dataSource]="schoolClassList$" class="mat-elevation-z8">
+  <ng-container matColumnDef="className">
+    <mat-header-cell *matHeaderCellDef> Class Name</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.className}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="teacherName">
+    <mat-header-cell *matHeaderCellDef> Teacher Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.teacherName}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="editRow">
+      <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <button mat-button (click)="onEditClick(element.className)">Edit</button> </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="deleteRow">
+    <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <button mat-button (click)="onDeleteClick(element.className)">Delete</button> </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickRowHandler(row)"></mat-row>
+</mat-table>
+
+<app-student [currentSchoolClassName]="currentSchoolClassName"></app-student>
