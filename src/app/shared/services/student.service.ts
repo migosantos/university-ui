@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Student } from '../models/student.model';
+import { catchError } from 'rxjs/operators';
+import { MessagingService } from './messaging.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private messagingService: MessagingService) { }
 
   private getApiUrl(): string {
     return '/api/student'
@@ -29,7 +32,12 @@ export class StudentService {
 
   public createStudentAndAddToClass(className: string, student: Student) : Observable<Student> {
     let studentJson = JSON.stringify(student);
-    return this.http.post<Student>(`${this.getApiUrl()}/addtoclass/${className}`,studentJson);
+    return this.http.post<Student>(`${this.getApiUrl()}/addtoclass/${className}`,studentJson)
+    .pipe<any>(catchError(val => {
+      const msg = 'Student Already Exists'
+      this.messagingService.pushErrorMessage(msg);
+      return Observable.throw(msg);
+    }));
   }
 
   public update(student: Student) : Observable<Student> {

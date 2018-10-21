@@ -1,3 +1,7 @@
 .tb-spacer {
     flex: 1 1 auto;
-  }
+}
+
+.mat-row:hover {
+  background-color: #d2b0ee;
+}

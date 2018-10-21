@@ -10,3 +10,7 @@
 .hr-padding {
     padding-top: 10px;
 }
+
+.mat-row:hover {
+    background-color: #d2b0ee;
+}
