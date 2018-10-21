@@ -32,5 +32,12 @@ export class StudentComponent implements OnInit, OnChanges {
     }
   }
 
+  isHighGrade(gpa: number) : boolean{
+    if(gpa >= 3.2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 }

@@ -20,12 +20,12 @@
 
   <ng-container matColumnDef="editRow">
       <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <button mat-button (click)="onEditClick(element.className)">Edit</button> </mat-cell>
+      <mat-cell *matCellDef="let element"> <button mat-button (click)="onEditClick(element)">Edit</button> </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="deleteRow">
     <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
-    <mat-cell *matCellDef="let element"> <button mat-button (click)="onDeleteClick(element.className)">Delete</button> </mat-cell>
+    <mat-cell *matCellDef="let element"> <button mat-button (click)="onDeleteClick(element)">Delete</button> </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

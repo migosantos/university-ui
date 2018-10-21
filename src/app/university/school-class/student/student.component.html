@@ -31,6 +31,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickRowHandler(row)"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickRowHandler(row)"
+    [ngClass]="isHighGrade(row.gpa) ? 'highlight' : 'none-hightlight'"></mat-row>
   </mat-table>
 </div>

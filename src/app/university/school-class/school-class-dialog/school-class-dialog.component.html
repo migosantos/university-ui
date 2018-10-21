@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{data.className}}</h1>
+<div mat-dialog-content>
+    <p>Class Name</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.className">
+    </mat-form-field>
+    <p>Location</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.location">
+    </mat-form-field>
+    <p>Teacher Name</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.teacherName">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>
