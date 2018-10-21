@@ -17,7 +17,9 @@ export class SchoolClassComponent implements OnInit {
   currentSchoolClassName: string;
 
   constructor(private schoolClassService: SchoolClassService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) { 
+
+  }
 
   ngOnInit() {
     this.refreshGrid();
@@ -37,6 +39,10 @@ export class SchoolClassComponent implements OnInit {
     });
   }
 
+  onAddClick() {
+    this.openDialogForAdd();
+  }
+
   refreshGrid(): void{
     this.schoolClassService.findAll().subscribe(
       data => {
@@ -51,8 +57,27 @@ export class SchoolClassComponent implements OnInit {
       data: schoolClass
     });
 
+    const dialogRefInstance = dialogRef.componentInstance;
+    dialogRefInstance.operation = "EDIT";
+
     dialogRef.afterClosed().subscribe(result => {
       this.schoolClassService.update(result).subscribe((newData) => {
+        this.refreshGrid();
+      });
+    });
+  }
+
+  openDialogForAdd(): void {
+    const dialogRef = this.dialog.open(SchoolClassDialogComponent, {
+      width: '250px',
+      data: new SchoolClass()
+    });
+
+    const dialogRefInstance = dialogRef.componentInstance;
+    dialogRefInstance.operation = "ADD";
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.schoolClassService.create(result).subscribe((newData) => {
         this.refreshGrid();
       });
     });

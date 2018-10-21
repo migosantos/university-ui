@@ -1,7 +1,10 @@
-
-<h1>
-  Classes
-</h1>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>University Classes</span>
+    <span class="tb-spacer"></span>
+    <button mat-button (click)="onAddClick()">Add</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 <mat-table [dataSource]="schoolClassList$" class="mat-elevation-z8">
   <ng-container matColumnDef="className">
     <mat-header-cell *matHeaderCellDef> Class Name</mat-header-cell>
@@ -19,8 +22,8 @@
   </ng-container>
 
   <ng-container matColumnDef="editRow">
-      <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <button mat-button (click)="onEditClick(element)">Edit</button> </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <button mat-button (click)="onEditClick(element)">Edit</button> </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="deleteRow">

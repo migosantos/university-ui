@@ -27,6 +27,11 @@ export class StudentService {
     return this.http.post<Student>(this.getApiUrl(),studentJson);
   }
 
+  public createStudentAndAddToClass(className: string, student: Student) : Observable<Student> {
+    let studentJson = JSON.stringify(student);
+    return this.http.post<Student>(`${this.getApiUrl()}/addtoclass/${className}`,studentJson);
+  }
+
   public update(student: Student) : Observable<Student> {
     let studentJson = JSON.stringify(student);
     return this.http.post<Student>(`${this.getApiUrl()}/${student.lastName}`,studentJson);

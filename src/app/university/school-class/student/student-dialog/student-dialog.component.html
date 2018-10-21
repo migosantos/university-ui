@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{data.firstName}} &nbsp; {{data.lastName}}</h1>
+<div mat-dialog-content>
+    <p>Last Name</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.lastName" [disabled]="operation === 'EDIT'">
+    </mat-form-field>
+    <p>First Name</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.firstName">
+    </mat-form-field>
+    <p>Age</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.age">
+    </mat-form-field>
+    <p>GPA</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.gpa">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

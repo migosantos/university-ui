@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { UniversityComponent } from './university/university.component';
@@ -16,6 +17,7 @@ import { SchoolClassComponent } from './university/school-class/school-class.com
 import { StudentComponent } from './university/school-class/student/student.component';
 import { SchoolClassDialogComponent } from './university/school-class/school-class-dialog/school-class-dialog.component';
 import { HttpHeadersInterceptor } from './shared/interceptors/http-headers-interceptor.service';
+import { StudentDialogComponent } from './university/school-class/student/student-dialog/student-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +25,17 @@ import { HttpHeadersInterceptor } from './shared/interceptors/http-headers-inter
     UniversityComponent,
     SchoolClassComponent,
     StudentComponent,
-    SchoolClassDialogComponent
+    SchoolClassDialogComponent,
+    StudentDialogComponent
   ],
-  entryComponents: [SchoolClassDialogComponent],
+  entryComponents: [SchoolClassDialogComponent, StudentDialogComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
+    MatToolbarModule,
     MatInputModule,
     MatTableModule,
     MatButtonModule,

@@ -2,3 +2,11 @@
     font-weight: bold;
     font-style: italic;
 }
+
+.tb-spacer {
+    flex: 1 1 auto;
+}
+
+.hr-padding {
+    padding-top: 10px;
+}
